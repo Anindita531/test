@@ -11,16 +11,10 @@ const transporter = nodemailer.createTransport({
   host: "smtp.gmail.com",
   port: 587,
   secure: false,
-  family: 4,
+  family: 4,   // VERY IMPORTANT
   auth: {
     user: process.env.GMAIL_USER,
     pass: process.env.GMAIL_PASS
-  },
-  connectionTimeout: 20000,
-  greetingTimeout: 20000,
-  socketTimeout: 30000,
-  tls: {
-    rejectUnauthorized: false
   }
 });
 

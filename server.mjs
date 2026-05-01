@@ -6,16 +6,18 @@ dotenv.config();
 
 const app = express();
 app.use(express.json());
-
 const transporter = nodemailer.createTransport({
-  host: "smtp.gmail.com",
+  host: "74.125.69.109",
   port: 587,
   secure: false,
-  family: 4,   // VERY IMPORTANT
   auth: {
     user: process.env.GMAIL_USER,
     pass: process.env.GMAIL_PASS
-  }
+  },
+  tls: {
+    servername: "smtp.gmail.com"
+  },
+  connectionTimeout: 20000
 });
 
 // Home Route
